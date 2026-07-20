@@ -4,6 +4,7 @@ import type { Tab } from '../App'
 interface Props {
   activeTab: Tab
   setActiveTab: (tab: Tab) => void
+  onOpenChange?: (open: boolean) => void
 }
 
 const navItems: { id: Tab; label: string; icon: (active: boolean) => JSX.Element }[] = [
@@ -63,12 +64,17 @@ const navItems: { id: Tab; label: string; icon: (active: boolean) => JSX.Element
   },
 ]
 
-export default function BottomNav({ activeTab, setActiveTab }: Props) {
+export default function BottomNav({ activeTab, setActiveTab, onOpenChange }: Props) {
   const [open, setOpen] = useState(false)
+
+  const updateOpen = (value: boolean) => {
+    setOpen(value)
+    onOpenChange?.(value)
+  }
 
   const handleSelect = (tab: Tab) => {
     setActiveTab(tab)
-    setOpen(false)
+    updateOpen(false)
   }
 
   return (
@@ -77,7 +83,7 @@ export default function BottomNav({ activeTab, setActiveTab }: Props) {
       {open && (
         <div
           className="fixed inset-0 z-40"
-          onClick={() => setOpen(false)}
+          onClick={() => updateOpen(false)}
         />
       )}
 
@@ -127,7 +133,7 @@ export default function BottomNav({ activeTab, setActiveTab }: Props) {
 
         {/* Single toggle button */}
         <button
-          onClick={() => setOpen(o => !o)}
+          onClick={() => updateOpen(!open)}
           className="flex flex-col items-center justify-center gap-1 py-2 px-6 transition-colors"
           aria-label="Open navigation"
         >
