@@ -16,14 +16,14 @@ export const PROTOTYPE_URLS: Record<string, string> = {
 
   settings_baseline:    'https://schmutterers-schmiede.github.io/MA-MobileSettingsMenu-Right/',
   settings_lefthand:    'https://schmutterers-schmiede.github.io/MA-MobileSettingsMenu-Left/',
-  settings_onehandmode: 'https://you.github.io/settings-ohm/', // TODO: confirm once deployed
+  settings_onehandmode: 'https://schmutterers-schmiede.github.io/MA-MobileSettingsMenu-OneHanded/',
 
   control_center_baseline:    'https://schmutterers-schmiede.github.io/MA-iosControlCenter-Right/',
   control_center_lefthand:    'https://schmutterers-schmiede.github.io/MA-iosControlCenter-Left/',
-  control_center_onehandmode: 'https://you.github.io/control-center-ohm/', // TODO: confirm once deployed
+  control_center_onehandmode: 'https://schmutterers-schmiede.github.io/MA-iosControlCenter-OneHanded/', 
 
-  message_inbox_baseline: 'https://schmutterers-schmiede.github.io/MA-Inbox-Right/',
-  message_inbox_lefthand: 'https://schmutterers-schmiede.github.io/MA-Inbox-Left/',
+  message_inbox_baseline:    'https://schmutterers-schmiede.github.io/MA-Inbox-Right/',
+  message_inbox_lefthand:    'https://schmutterers-schmiede.github.io/MA-Inbox-Left/',
 };
 
 export const INSTRUCTIONS: Record<string, { title: string; text: string }> = {
@@ -100,7 +100,7 @@ export function nextUrl(ctx: ReturnType<typeof getContext>) {
   const nextStep = ctx.step + 1;
 
   if (nextStep >= sequence.length) {
-    return `https://tally.so/r/FINAL_FORM_ID?pid=${ctx.pid}&grip=${ctx.grip}`;
+    return `https://tally.so/r/gD17jO?pid=${ctx.pid}&grip=${ctx.grip}`;
   }
 
   const next = sequence[nextStep];
