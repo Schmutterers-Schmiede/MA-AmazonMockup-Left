@@ -7,7 +7,7 @@ import Basket from './pages/Basket'
 import Browse from './pages/Browse'
 import Rufus from './pages/Rufus'
 import { getContext, nextUrl, INSTRUCTIONS } from './tallyFlow'
-import { InstructionsOverlay } from './InstructionsOverlay'
+import { InstructionsOverlay } from './instructionsOverlay'
 import { GRIP_IMAGES } from './gripImages';
 
 export type Tab = 'home' | 'you' | 'basket' | 'browse' | 'rufus'
