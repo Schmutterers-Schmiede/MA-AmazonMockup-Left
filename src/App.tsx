@@ -6,7 +6,7 @@ import You from './pages/You'
 import Basket from './pages/Basket'
 import Browse from './pages/Browse'
 import Rufus from './pages/Rufus'
-import { getContext, nextUrl, INSTRUCTIONS } from './tallyFlow'
+import { getContext, nextUrl } from './tallyFlow'
 import { InstructionsOverlay } from './instructionsOverlay'
 import { GRIP_IMAGES } from './gripImages';
 
@@ -115,7 +115,7 @@ export default function App() {
               : 'bg-gray-300 text-gray-400 cursor-not-allowed'
           }`}
         >
-          Done testing — Rate this
+          Rate Now
         </button>
       </div>
 
@@ -124,8 +124,7 @@ export default function App() {
       {/* Instructions overlay, shown until participant taps Start */}
       {showInstructions && (
         <InstructionsOverlay
-          title={INSTRUCTIONS.amazon_nav.title}
-          instructions="Try visiting every page using the menu button in the middle of the navigation bar. When you're done, tap 'Rate this' below."
+          variant={ctx.variant}
           onStart={handleStart}
           gripImage={GRIP_IMAGES[ctx.grip]}
         />
